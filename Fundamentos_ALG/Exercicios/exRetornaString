@@ -1,0 +1,40 @@
+str1: str = 'Algoritmos'
+resposta:str = ''
+
+def retornaCaractere(palavra:str):
+    return palavra[0:3]
+
+def retornaUltimosCaracteres(palavra: str):
+    return palavra[len(palavra)-3:len(palavra)]
+
+def retornaCaractere2(palavra:str):
+    n:int = 0
+    primeirasLetras: str = ''
+    for i in palavra:
+        if n<3:
+            primeirasLetras = primeirasLetras + i
+        n = n+1
+    return primeirasLetras
+
+def retornaUltimosCaracteres2(palavra:str):
+    comeco:int = len(palavra)-3
+    n:int = 0
+    ultimasLetras: str = ''
+    for i in palavra:
+        if n>=comeco:
+            ultimasLetras = ultimasLetras+i
+            comeco = comeco+1
+        n = n+1
+    return ultimasLetras
+
+print(retornaCaractere(str1))
+print(retornaUltimosCaracteres(str1))
+print(retornaCaractere2(str1))
+print(retornaUltimosCaracteres2(str1))
+
+while resposta != 'Não':
+    resposta = input('Digite uma palavra: ("Não" para encerrar.)')
+    print(retornaCaractere(resposta))
+    print(retornaUltimosCaracteres(resposta))
+    print(retornaCaractere2(resposta))
+    print(retornaUltimosCaracteres2(resposta))
