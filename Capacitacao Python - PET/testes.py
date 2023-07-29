@@ -1,4 +1,7 @@
-print(14//3)
-nome: str = 'Bruno Silva'
-Silva = nome.split(' ', 1)
-print(Silva)
+x:bool = True
+n:float = 144
+
+while x:
+    print(n)
+    n = n * (n/1000)
+    input()
