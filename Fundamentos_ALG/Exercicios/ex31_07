@@ -1,28 +1,32 @@
+import doctest
+
 ''' 1) Faça uma função para calcular o dobro de um numero. '''
 def retornaDobro(num:int) -> int:
-    return num*2
-    ''' Ex:
+    '''Ex:
     >>> retornaDobro(3)
     6
     >>> retornaDobro(42)
-    84'''
+    84
+    '''
+    return num*2
 
 
 ''' 2) Faça uma função que receba três valores como sendo a idade
 de uma pessoa em dias, meses, anos e retorne a idade da pessoa em dias. '''
 def retornaIdade(dias, meses, anos:int):
-    ''' Ex: 
+    '''Ex: 
     >>> retornaIdade(31, 07, 18)
     6881
     >>> retornaIdade(21, 12. 20)
-    7528'''
+    7528
+    '''
     meses = meses * 30
     anos = anos * 12 * 30
     return dias + meses + anos
-
+    
 ''' 3) Escreva uma função que retorne os 3 primeiros caracteres de uma string. '''
 def retorna3primeiros(palavra:str):
-    ''' Ex: 
+    '''Ex: 
     >>> retorna3primeiros('Perenaldo')
     'Per'
     >>> retorna3primeiros('Patonaldo')
@@ -32,7 +36,7 @@ def retorna3primeiros(palavra:str):
 
 ''' 4) Faça uma função que retorne os 3 últimos caracteres de uma string. '''
 def retorna3ultimos(palavra:str):
-    ''' Ex:
+    '''Ex:
     >>> retorna3ultimos('Ronaldo')
     'ldo'
     >>> retorna3ultimos('Sandro')
