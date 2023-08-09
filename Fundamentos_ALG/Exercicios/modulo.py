@@ -9,4 +9,11 @@ def entrada():
     mod = modulo(n1)
     print("O módulo do número é: ", mod)
 
+def maximo(n1: int, n2: int) -> int:
+    if n1 > n2:
+        maior: int = n1
+    else:
+        maior: int = n2
+    return maior
+
 entrada()
