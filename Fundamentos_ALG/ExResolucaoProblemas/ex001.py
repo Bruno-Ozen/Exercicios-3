@@ -1,4 +1,8 @@
-''' EXERCÍCIO 1
+'''
+Aluno: Bruno Henrique de Pinho
+RA: 133301
+
+EXERCÍCIO 1
 1. Análise
 	- Verificar a senha a partir da entrada do usuário, e retornar
 	se a senha está correta, que é ser igual a "Giva123".

@@ -1,4 +1,8 @@
-''' EXERCÍCIO 3
+'''
+Aluno: Bruno Henrique de Pinho
+RA: 133301
+
+EXERCÍCIO 3
 1. Análise
 	- Receber 3 valores reais, verificar se os valores podem
     ser os lados de um triângulo verificando em cada um dos valores
