@@ -1,0 +1,24 @@
+totaliza_pedidos([Totalizacao(tipo=TipoProduto.BOBINA, quantidade=12, qtdDesconto=10, precoCusto=50.0, total=212.4, lucro=10.0, porcDesconto=12), 
+[Totalizacao(tipo=TipoProduto.BOBINA, quantidade=5, qtdDesconto=10, precoCusto=50.0, total=300.0, lucro=10.0, porcDesconto=12),
+[Totalizacao(tipo=TipoProduto.BOBINA, quantidade=20, qtdDesconto=10, precoCusto=50.0, total=1056.0, lucro=10.0, porcDesconto=12),
+[Totalizacao(tipo=TipoProduto.CHAPA, quantidade=2, qtdDesconto=8, precoCusto=40.0, total=96.0, lucro=8.0, porcDesconto=8.0),
+[Totalizacao(tipo=TipoProduto.CHAPA, quantidade=3, qtdDesconto=8, precoCusto=40.0, total=114.0, lucro=8.0, porcDesconto=8.0),
+[Totalizacao(tipo=TipoProduto.CHAPA, quantidade=4, qtdDesconto=8, precoCusto=40.0, total=192.0, lucro=8.0, porcDesconto=8.0),
+[Totalizacao(tipo=TipoProduto.PAINEL, quantidade=50, qtdDesconto=10, precoCusto=75.0, total=3825.0, lucro=15.0, porcDesconto=15.0)]
+
+
+Pedido([Totalizacao(tipo=TipoProduto.BOBINA, quantidade=37, qtdDesconto=10, precoCusto=50.0, total=212.4, lucro=10.0, porcDesconto=12)
+, Totalizacao(tipo=TipoProduto.CHAPA, quantidade=9, qtdDesconto=8, precoCusto=397.44, total=96.0, lucro=8.0, porcDesconto=8.0),
+Totalizacao(tipo=TipoProduto.PAINEL, quantidade=50, qtdDesconto=10, precoCusto=75.0, total=3825.0, lucro=15.0, porcDesconto=15.0)], 4133.4, 'José Louro', 'Maria Moreno')
+
+CHAPA = TOTAL = 400 REAIS
+25 X 16
+
+(8 + 6 ) / 2 = 7
+
+(8 + 10) / 2 = 9
+
+
+[Totalizacao(tipo=TipoProduto.BOBINA, quantidade=100, qtdDesconto=10, precoCusto=50.0, total=5280.0, lucro=10.0, porcDesconto=12.0)
+[Totalizacao(tipo=TipoProduto.CHAPA, quantidade=50, qtdDesconto=8, precoCusto=40.0, total=2208.0, lucro=8.0, porcDesconto=8.0)
+[Totalizacao(tipo=TipoProduto.PAINEL, quantidade=30, qtdDesconto=10, precoCusto=75.0, total=2295.0, lucro=15.0, porcDesconto=15.0)

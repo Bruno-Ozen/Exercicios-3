@@ -33,5 +33,5 @@ tresNumeros = numeros[0 : 3]
 
 print(retornaMaximoFlex(numeros))
 print(retornaMaximo3numeros(2, 42, 1))
-print(retornaMaximoFuncao(numeros))          
-print(retornaMaximoLista(numeros))  
+print(retornaMaximoFuncao(numeros))   
+print(retornaMaximoLista(numeros))
