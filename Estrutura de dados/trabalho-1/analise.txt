@@ -1,0 +1,45 @@
+1) Análise
+        Desenvolver um sistema que simula o atendimento de clientes, por meio de senhas, por um número de
+    N caixas disponíveis.
+    O simulador deverá possibilitar o atendimento de dois tipos distintos de clientes:
+        • Clientes preferenciais;
+        • Clientes comuns.
+
+        O simulador não deverá permitir o atendimento de clientes comuns enquanto existirem clientes preferenciais
+    aguardando atendimento. O número de caixas disponíveis para o atendimento deverá ser informado no início da simulação. A quantidade de
+    caixas deverá ser maior ou igual a 2 e menor ou igual a 20. Além disso, todos os caixas sempre estarão disponíveis
+    para o atendimento, ou seja, não existirão caixas fechados. Não será permitido que o sistema crie duas senhas iguais e as mantenha esperando. Porém, é permitido (mas não
+    necessário) que sejam geradas senhas que já foram usadas anteriormente, contanto que não se encontrem em
+    atendimento (em algum caixa) e nem estejam esperando por atendimento.
+
+    Uma vez iniciado, o simulador deverá apresentar um menu com as seguintes opções:
+    1. Retirada de senha
+    • O sistema deverá solicitar o tipo de cliente (preferencial ou comum) e, em seguida, exibir na tela a senha
+    gerada e incluir o cliente na devida fila.
+    • Pense nesta opção (1) como o “botão” que o cliente aciona para retirar uma senha.
+    2. Chamar cliente
+    • O sistema deverá solicitar o número do caixa (que está fazendo a chamada) e chamar o próximo cliente a ser
+    atendido, mostrando a senha do cliente na tela e informando o número do caixa para o atendimento.
+    • Pense nesta opção (2) como o “botão” que o operador do caixa aciona para chamar o próximo cliente.
+    • Sempre que existirem clientes preferenciais aguardando atendimento, eles deverão ser chamados. Além
+    disso, o primeiro cliente preferencial a chegar será o primeiro a ser atendido, o segundo cliente preferencial
+    a chegar será o segundo atendido, e assim por diante.
+    • Quando não existirem clientes preferenciais aguardando, os clientes comuns poderão ser atendidos. Em tal
+    situação, o primeiro cliente comum a chegar será o primeiro a ser atendido, o segundo cliente comum a
+    chegar será o segundo a ser atendido, e assim por diante.
+    • Uma vez chamado, o cliente deverá ser removido da sua fila de espera e atendido pelo caixa designado. O
+    cliente chamado permanecerá em atendimento até que uma nova chamada seja realizada pelo operador do
+    caixa.
+    • Caso não existam clientes aguardando quando uma chamada de cliente for realizada, deverá ser exibida a
+    mensagem de que não existem clientes aguardando atendimento.
+    3. Consultar clientes em espera
+    • O sistema deverá mostrar os clientes que estão aguardando atendimento, em dois grupos distintos: os
+    clientes preferenciais e os clientes comuns.
+    • Ambos os grupos devem ser mostrados em ordem de retirada da senha.
+    4. Consultar estado dos caixas
+    • O sistema deverá exibir todos os caixas disponíveis e qual o número da senha que está sendo atendida no
+    caixa naquele momento.
+    5. Sair
+    • A execução do simulador deverá ser encerrada.
+    • Enquanto não for selecionada a opção “Sair”, o simulador deverá executar a funcionalidade selecionada e
+    retornar ao menu de opções.
