@@ -39,15 +39,16 @@ class Caixa:
         self.senhas_clientes = FilaEstatica(10)
         self.senhas_preferencial = FilaEstatica(10)
         self.senhas_disponiveis = FilaEstatica(10)
-        for i in range(1, 10):
-            self.senhas_disponiveis.enfileira(Senha(self.numero, i))
-
-    def geraSenha(self, preferencial) -> None:
+        for i in range(0, 10):
+            self.senhas_disponiveis.enfileira(Senha(self.numero, i + 1))
+            
+    def geraSenha(self, preferencial) -> Senha:
         senha: Senha = self.senhas_disponiveis.desenfileira()
         if preferencial:
             self.senhas_preferencial.enfileira(senha)
         else:
             self.senhas_clientes.enfileira(senha)
+        return senha
 
     def atender(self, preferencial) -> Senha:
         if preferencial and not self.senhas_preferencial.vazia():
@@ -98,9 +99,11 @@ class Mercado:
             preferencial = True
         else:
             print('Valor inválido. Digite outro número e tente novamente.')
+            return Cliente(False, senha) 
+
         while not disponivel and i < self.quantidade:
             if self.caixas[i].disponivel():
-                self.caixas[i].geraSenha(preferencial)
+                senha: Senha = self.caixas[i].geraSenha(preferencial)
                 disponivel = True
                 print('Enfileirado com sucesso!')
             else:
@@ -113,19 +116,28 @@ class Mercado:
         '''Chama um cliente, exibindo a senha, modalidade e caixa na tela. Retorna a senha chamada,
             para que seja reutilizada posteriormente na fila de senhas_disponiveis.
         '''
-        if self.caixas[caixa].preferencial_vazia():
+        cliente = Senha(0, 0) 
+
+        if not self.caixas[caixa].preferencial_vazia():
             cliente = self.caixas[caixa].atender(False)
-            print('------ ATENÇÃO! Cliente de senha:', cliente.senha.numero_senha, '------')
-            print('------- Caixa:', self.caixas[caixa].numero)
-            print('De modalidade: Comum. Comparecer caixa para o atendimento.')
+            if cliente.numero_senha != 0:
+                print('------ ATENÇÃO! Cliente de senha:', cliente.numero_senha, '------')
+                print('------- Caixa:', self.caixas[caixa].numero)
+                print('De modalidade: Comum. Comparecer caixa para o atendimento.')
+                if not self.caixas[caixa].senhas_disponiveis.cheia():
+                    self.caixas[caixa].senhas_disponiveis.enfileira(cliente)
         elif not self.caixas[caixa].senhas_preferencial.vazia():
             cliente = self.caixas[caixa].atender(True)
-            print('------ ATENÇÃO! Cliente de senha:', cliente.senha.numero_senha, '------')
-            print('------- Caixa:', self.caixas[caixa].numero)
-            print('De modalidade: Preferencial. Comparecer caixa para o atendimento.')
+            if cliente.numero_senha != 0:
+                print('------ ATENÇÃO! Cliente de senha:', cliente.numero_senha, '------')
+                print('------- Caixa:', self.caixas[caixa].numero)
+                print('De modalidade: Preferencial. Comparecer caixa para o atendimento.')
+                if not self.caixas[caixa].senhas_disponiveis.cheia():
+                    self.caixas[caixa].senhas_disponiveis.enfileira(cliente)
         else:
             print('Não há nenhum cliente em fila no momento.')
-            return Senha(0, 0)
+
+        return cliente
 
 def menu():
     print('------- SIMULADOR DE ATENDIMENTO DE CLIENTES --------')
