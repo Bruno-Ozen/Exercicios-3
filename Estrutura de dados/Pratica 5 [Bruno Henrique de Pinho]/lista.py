@@ -169,3 +169,25 @@ class ListaEstatica():
             raise ValueError('Elemento Inexistente')
         self._deslocaEsquerda(posElem)
         self.fim -= 1
+        
+    def inverte(self) -> None:
+        ''' Inverte a lista estática '''
+        for i in range(self.tamanho()):
+            aux = self.ultimo()
+            self.remove()
+            self.inserePos(aux, i)
+        
+    def concatena(self, l):
+        ''' Concatena a ListaEstatica atual com outra ListaEstatica passada por parâmetro '''
+        
+        # Verifica se l é uma instância de ListaEstatica
+        if isinstance(l, ListaEstatica):
+            if not l.vazia():
+                lista_concatenada = ListaEstatica(self.tamanho() + l.tamanho())
+                for i in range(self.tamanho()):
+                    lista_concatenada.insere(self.elementos[i])
+                for i in range(l.tamanho()):
+                    lista_concatenada.insere(l.buscaPos(i))
+                return lista_concatenada
+        else:
+            return None

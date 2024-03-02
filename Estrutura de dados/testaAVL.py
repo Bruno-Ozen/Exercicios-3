@@ -1,0 +1,25 @@
+from arvoreAVL import *
+
+a = AVL()
+a.insere(Item(1))
+a.insere(Item(2))
+a.insere(Item(3))
+a.exibe()
+a.insere(Item(4))
+a.insere(Item(5))
+a.exibe()
+a.insere(Item(6))
+a.exibe()
+a.insere(Item(7))
+a.exibe()
+a.insere(Item(8))
+a.exibe()
+a.remove(Item(2))
+a.exibe()
+a.remove(Item(5))
+a.exibe()
+no = a.busca(Item(8))
+if no != None:
+    print(no.elemento.valor)
+else:
+    print('elemento nao encontrado')

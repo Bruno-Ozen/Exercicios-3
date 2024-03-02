@@ -39,15 +39,15 @@ class Caixa:
         self.senhas_clientes = FilaEstatica(10)
         self.senhas_preferencial = FilaEstatica(10)
         self.senhas_disponiveis = FilaEstatica(10)
-        for i in range(0, 10):
-            self.senhas_disponiveis.enfileira(Senha(self.numero, i + 1))
+        for i in range(1, 10):
+            self.senhas_disponiveis.enfileira(Senha(self.numero, i))
             
     def geraSenha(self, preferencial) -> Senha:
         senha: Senha = self.senhas_disponiveis.desenfileira()
         if preferencial:
-            self.senhas_preferencial.enfileira(senha)
+            self.senhas_preferencial.enfileira(Cliente(preferencial, senha))
         else:
-            self.senhas_clientes.enfileira(senha)
+            self.senhas_clientes.enfileira(Cliente(preferencial, senha))
         return senha
 
     def atender(self, preferencial) -> Senha:
@@ -105,18 +105,16 @@ class Mercado:
             if self.caixas[i].disponivel():
                 senha: Senha = self.caixas[i].geraSenha(preferencial)
                 disponivel = True
-                print('Enfileirado com sucesso!')
-            else:
-                print('Não há caixas disponíveis no momento.')
-                break
             i += 1
+        if disponivel == False:
+            print('Não há caixas disponíveis no momento. Tente novamente mais tarde.')
         return Cliente(preferencial, senha)
     
     def chama_cliente(self, caixa: int) -> Senha:
         '''Chama um cliente, exibindo a senha, modalidade e caixa na tela. Retorna a senha chamada,
             para que seja reutilizada posteriormente na fila de senhas_disponiveis.
         '''
-        cliente = Senha(0, 0) 
+        cliente = Senha(0, 0)
 
         if not self.caixas[caixa].preferencial_vazia():
             cliente = self.caixas[caixa].atender(False)
@@ -161,8 +159,8 @@ def menu():
             print('Caixa: ', cliente.senha.numero_caixa)
         elif resposta == 2:
             caixa = int(input('Qual é o número do caixa que deseja chamar? '))
-            senha_reciclada = mercado.chama_cliente(int(caixa))
-            mercado.caixas[caixa].senhas_disponiveis.enfileira(senha_reciclada)
+            senha_reciclada = mercado.chama_cliente(int(caixa) - 1)
+            mercado.caixas[caixa - 1].senhas_disponiveis.enfileira(senha_reciclada)
         elif resposta == 3:
             caixa = int(input('Qual é o número do caixa que deseja consultar a fila de Clientes?'))
             print('Fila de Clientes Comuns:')
@@ -182,10 +180,10 @@ def menu():
         else:
             print('Número inválido. Digite outro valor e tente novamente.')
 
-def main(args):
+def main():
     menu()
 
 if __name__ == '__main__':
-    main(sys.argv)
+    main()
     import doctest
     doctest.testmod()

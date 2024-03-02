@@ -39,7 +39,7 @@ class FilaEstatica():
         self.fim = self._avanca(self.fim)
         self.qtdElem += 1
         
-    def desenfileira(self) -> Item:
+    def desenfileira(self):
         ''' Remove um elemento da fila '''
         if self.vazia():
             raise ValueError('Fila Vazia')
@@ -48,22 +48,32 @@ class FilaEstatica():
         self.qtdElem -= 1
         return elem
     
-    def primeiroElemento(self) -> Item:
+    def primeiroElemento(self):
         ''' Retorna o primeiro elemento da fila '''
         if self.vazia():
             raise ValueError('Fila Vazia')
         return deepcopy(self.elementos[self.inicio])
         
     def exibe(self) -> None:
+        modalidade = ''
         ''' Imprime a fila '''
         print('Fila: inicio --> [', end='')
         i = self.inicio
         for k in range(self.qtdElem):
-            print(self.elementos[i].valor, end='')
+            if self.elementos[k].preferencial == True:
+                modalidade = 'Preferencial'
+            elif self.elementos[k].preferencial == False:
+                modalidade = 'Comum'
+            print('\n------- Cliente ', str(k + 1), ' -------')
+            print('Modalidade:', modalidade)
+            print('Caixa: ', self.elementos[i].senha.numero_caixa)
+            # Aqui o modalidade[0] é para pegar a inicial da variável modalidade, de modo que seja
+            # possível diferenciar senhas comuns das preferenciais ao exibir a fila.
+            print('Senha: ', self.elementos[i].senha.numero_senha, modalidade[0], end='')
             if k < self.qtdElem - 1:
-                print(', ', end='')
+                print('\n')
             i = self._avanca(i)
-        print('] <-- fim')
+        print('\n] <-- fim\n')
             
     def esvazia(self) -> None:
         ''' Esvazia a fila (remove todos os elementos)'''
@@ -74,3 +84,13 @@ class FilaEstatica():
     def tamanho(self) -> int:
         ''' Retorna o tamanhho lógico da fila '''
         return self.qtdElem
+    
+def buscaPos(self, pos) -> Item:
+    ''' Retorna o elemento da posição *pos* '''
+    if self.vazia():
+        raise ValueError('Lista Vazia')
+    if pos < 0 or pos >= self.TAM_MAX:
+        raise ValueError('Índice Fora do Limite')
+    if pos >= self.fim:
+        raise ValueError('Posição inválida')
+    return deepcopy(self.elementos[pos])

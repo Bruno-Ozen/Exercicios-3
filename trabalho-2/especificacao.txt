@@ -1,0 +1,39 @@
+1) Análise
+    Implementar um programa que simula um cadastro de pessoas, conforme especificado abaixo. Cada pessoa será 
+    representada por uma estrutura contendo os seguintes campos: 
+    • Nome; 
+    • Idade; 
+    • Sexo; 
+    • Peso. 
+    Todas as pessoas cadastradas deverão ser armazenadas em uma árvore AVL e o campo Nome deverá ser utilizado 
+    como chave de ordenação.  
+    Uma vez iniciado, o programa deverá apresentar um menu com as seguintes opções: 
+    1. Cadastro 
+    • O sistema deverá permitir o cadastro de pessoas de duas formas: uma pessoa de cada vez ou em lote.  
+    • Na opção de cadastro de uma pessoa, o programa deverá solicitar que o usuário digite os dados da pessoa e, 
+    em seguida, deverá inserir a pessoa na árvore. Por simplicidade, não será permitida a inserção de pessoas 
+    diferentes com o mesmo nome.  
+    • Na opção de cadastro de pessoas em lote, o programa solicitar que o usuário digite uma string contendo os 
+    dados das pessoas a serem cadastradas, no seguinte formato: 
+    Nome_1,idade_1,sexo_1,peso_1|nome_2,idade_2,sexo_2,peso_2|...|nome_n,idade_n,sexo_n,peso_n 
+    Por exemplo: 
+    ana,35,f,75|carlos,28,m,80|lucia,45,f,70|roberto,42,m,75|charles,18,m,90|andre,15,m,60 
+    • Por simplicidade, considere que a string sempre será digitada no formato correto. Os dados recebidos 
+    deverão ser agrupados em estruturas do tipo pessoa e inseridos na árvore, na mesma sequência em que 
+    foram digitados pelo usuário. 
+    2. Busca 
+    • O programa deverá permitir a busca de pessoas pelo campo Nome. O programa deverá solicitar que o 
+    usuário digite o nome da pessoa a ser buscada e, em seguida, deverá realizar a busca. Caso a pessoa seja 
+    encontrada, os seus dados deverão ser apresentados em tela. Caso a pessoa não seja encontrada, deverá ser 
+    apresentada uma mensagem de pessoa não encontrada. 
+    3. Relatório 
+    • O relatório gerado deverá ser apresentado em tela com as seguintes informações: 
+    o A lista de nomes cadastrados em ordem alfabética; 
+    o O total de pessoas cadastradas; 
+    o A quantidade de homens e mulheres no cadastro; 
+    o O peso médio das pessoas cadastradas; 
+    o O número de pessoas maiores de 18 anos no cadastro. 
+    4. Sair 
+    • A execução do programa deverá ser encerrada. 
+    • Enquanto não for selecionada a opção “Sair”, o programa deverá executar a funcionalidade selecionada e 
+    retornar ao menu de opções. 
